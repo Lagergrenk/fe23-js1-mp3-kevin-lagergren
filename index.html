@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countries | Kevin Lagergren</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <form>
+        <input type="text" name="search" class="search" />
+        <input
+          type="radio"
+          name="option"
+          class="option name"
+          id="nameRadio"
+          value="name"
+        />
+        <label for="nameRadio">Name</label>
+        <input
+          type="radio"
+          name="option"
+          class="option language"
+          id="languageRadio"
+          value="language"
+        />
+        <label for="languageRadio">Language</label>
+        <input type="submit" value="Get countries" class="button" />
+      </form>
+    </header>
+    <main>
+      <div class="country-container"></div>
+      <div class="error-container"></div>
+    </main>
+  </body>
+</html>

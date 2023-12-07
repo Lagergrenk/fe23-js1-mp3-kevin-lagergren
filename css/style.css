@@ -1,0 +1,24 @@
+body {
+  background-color: bisque;
+}
+
+.country-container,
+.error-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.country {
+  margin: 20px;
+}
+.flag-img {
+  width: 320px;
+  height: 213px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
