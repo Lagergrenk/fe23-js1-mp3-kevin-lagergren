@@ -1,15 +1,17 @@
 //Global variable
 const form = document.querySelector("form");
 
+//Global variable for error and country container html
 const errorContainer = document.querySelector(".error-container");
 const countryContainer = document.querySelector(".country-container");
 
 //Get country information from API
 //Changin URL depending on search type (name or language)
 async function getCountry(searchType, userInput) {
+  //Changing user input to lowercase and removing spaces
   let userInputLowerCaseAndNoSpaces = userInput.toLowerCase().trim();
   let url;
-
+  //Checking search type and changing url accordingly(name of country or language spoken)
   switch (searchType) {
     case "name":
       url = `https://restcountries.com/v3.1/name/${userInputLowerCaseAndNoSpaces}`;
@@ -18,7 +20,6 @@ async function getCountry(searchType, userInput) {
       url = `https://restcountries.com/v3.1/lang/${userInputLowerCaseAndNoSpaces}`;
       break;
     default:
-      displayError("404");
       throw new Error("Invalid search type");
   }
   try {
@@ -75,7 +76,7 @@ function determineSearchType() {
   return searchType;
 }
 
-//Get the user input
+//Get the user input and check if it is empty
 function getUserInput() {
   let userInput = document.querySelector("input[name=search]").value;
   if (userInput === "") {
@@ -111,7 +112,6 @@ async function searchCountry(event) {
 
   //check if countries is empty if not : display countries
   if (countries.length > 0) {
-    console.log(countries);
     //sort countries by population descending(large first)
     countries.sort((a, b) => b.population - a.population);
     displayCountries(countries);
@@ -120,5 +120,5 @@ async function searchCountry(event) {
   }
 }
 
-// Event listener for submit button
+// Event listener for submit button in the form
 form.addEventListener("submit", searchCountry);
