@@ -71,6 +71,7 @@ async function searchCountry(event) {
 // ------------------ DISPLAY FUNCTIONS ------------------
 //Show country information on the page
 function displayCountries(countries) {
+  errorContainer.innerHTML = "";
   countryContainer.innerHTML = "";
 
   //Creating html for countries, displaying all countries asked for
