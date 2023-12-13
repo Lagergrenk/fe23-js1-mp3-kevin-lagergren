@@ -1,4 +1,4 @@
-//Global variable
+//Global variable for form
 const form = document.querySelector("form");
 
 //Global variable for error and country container html
@@ -9,7 +9,7 @@ const countryContainer = document.querySelector(".country-container");
 //Get country information from API
 //Changin URL depending on search type (name or language)
 async function getCountry(searchType, userInput) {
-  //Changing user input to lowercase and replacing spaces with %20
+  //Changing user input to lowercase and replacing spaces with %20 for url
   let userInputLowerCase = encodeURIComponent(userInput.toLowerCase().trim());
   console.log("getCountry", searchType, userInputLowerCase);
   let url;
@@ -71,6 +71,7 @@ async function searchCountry(event) {
 // ------------------ DISPLAY FUNCTIONS ------------------
 //Show country information on the page
 function displayCountries(countries) {
+  //Clearing containers
   errorContainer.innerHTML = "";
   countryContainer.innerHTML = "";
 
@@ -119,7 +120,7 @@ function getUserInput() {
 
 //inputvalidation for user input
 function inputValidation(input) {
-  //regex for only letters
+  //regex for only letters with spaces in between ex: "New Zealand" and "united states of america"
   let regex = /^[a-zA-Z]+(\s[a-zA-Z]+)*$/;
   if (input.match(regex)) {
     return true;
